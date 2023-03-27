@@ -73,6 +73,25 @@ public class LinkedList
         }
     }
 
+    public KeyValuePair<string, string>? GetByKey(string key)
+    {
+        if (_first == null)
+        {
+            return null;
+        }
+
+        var cur_node = _first;
+        while (cur_node != null)
+        {
+            if (cur_node.Pair.Key == key)
+            {
+                return cur_node.Pair;
+            }
+            cur_node = cur_node.Next;
+        }
+        return null;
+    }
+
     public void Print()
     {
         var cur_node = _first;
