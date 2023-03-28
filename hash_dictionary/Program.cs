@@ -1,13 +1,4 @@
-﻿// namespace heap_ns;
-//
-// public class Heap
-// {
-//     public List<int> data = new();
-//     private Func<int, int> get_right_child_index = x => x * 2 + 2;
-//     
-//
-// }
-public class KeyValuePair
+﻿public class KeyValuePair
 {
     public string Key { get; }
 
@@ -33,69 +24,54 @@ public class LinkedListNode
     }
 }
 
-
 public class LinkedList
 {
     private LinkedListNode _first;
 
     public void Add(KeyValuePair pair)
     {
-        var new_node = new LinkedListNode(pair, null);
+        var newNode = new LinkedListNode(pair, null);
         if (_first == null)
         {
-            _first = new_node;
-        }
-        else
+            _first = newNode;
+        } 
+        var current = _first;
+        while (current.Next != null)
         {
-            var cur_node = _first;
-            while (cur_node.Next != null)
-            {
-                cur_node = cur_node.Next;
-            }
-            cur_node.Next = new_node;
+            current = current.Next;
         }
+        current.Next = newNode;
     }
 
     public void RemoveByKey(string key)
     {
-        var cur_node = _first;
-        var prev_node = cur_node;
-        while (cur_node.Next != null)
+        var current = _first;
+        while (current.Next != null)
         {
-            if (cur_node.Pair.Key == key)
+            if (current.Next.Pair.Key == key)
             {
-                prev_node.Next = cur_node.Next;
-                break;
+                current.Next = current.Next.Next;
             }
-
-            prev_node = cur_node;
-            cur_node = cur_node.Next;
+            current = current.Next;
         }
     }
 
-    public KeyValuePair<string, string>? GetByKey(string key)
+    public KeyValuePair GetItemWithKey(string key)
     {
         if (_first == null)
         {
             return null;
         }
 
-        var cur_node = _first;
-        while (cur_node != null)
+        var current = _first;
+        while (current != null)
         {
-            if (cur_node.Pair.Key == key)
+            if (current.Pair.Key == key)
             {
-                return cur_node.Pair;
+                return current.Pair;
             }
-            cur_node = cur_node.Next;
+            current = current.Next;
         }
         return null;
-    }
-
-    public void Print()
-    {
-        var cur_node = _first;
-        while 
-        
     }
 }
