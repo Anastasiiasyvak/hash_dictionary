@@ -1,4 +1,10 @@
-﻿public class KeyValuePair
+﻿var dictionary = new StringsDictionary();
+foreach (var line in File.ReadAllLines(pathtoFile))
+{
+    
+}
+
+public class KeyValuePair
 {
     public string Key { get; }
 
