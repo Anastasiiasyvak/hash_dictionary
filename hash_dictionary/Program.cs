@@ -1,6 +1,6 @@
 ﻿public class KeyValuePair
 {
-    public string Key { get; }
+    public string Key { get; } // get оскільки key value їх значення встановлюється лише в момент створення об'єкту
 
     public string Value { get; }
 
@@ -19,7 +19,7 @@ public class LinkedListNode
 
     public LinkedListNode(KeyValuePair pair, LinkedListNode next = null)
     {
-        Pair = pair;
+        Pair = pair; // ключ значення яка вказує на дані пов'язані з цим вузлом
         Next = next;
     }
 }
@@ -31,9 +31,9 @@ public class LinkedList
     public void Add(KeyValuePair pair)
     {
         var newNode = new LinkedListNode(pair, null);
-        if (_first == null)
+        if (_first == null) // якщо список порожній
         {
-            _first = newNode;
+            _first = newNode; // то first стає newNode
         } 
         var current = _first;
         while (current.Next != null)
