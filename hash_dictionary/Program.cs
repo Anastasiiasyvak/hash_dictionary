@@ -63,7 +63,8 @@ public class LinkedList
         var newNode = new LinkedListNode(pair, null);
         if (_first == null) // якщо список порожній
         {
-            _first = newNode; // то first стає newNode
+            _first = newNode;
+            return; // то first стає newNode
         }
 
         var current = _first;
