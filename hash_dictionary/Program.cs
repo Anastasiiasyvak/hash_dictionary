@@ -1,14 +1,11 @@
 ﻿var dictionary = new StringsDictionary(); // для зберігання пар ключ-значення
-// string pathToFile = "our_dictionaryy.txt";
-
-
-string pathtoFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "our_dictionaryy.txt");
-
-// string pathtoFile = @"C:\hash_dictionary\our_dictionaryy.txt";
+string pathtoFile = "/home/nastia/for_new_projects/hash_dictionary/hash_dictionary/our_dictionaryy.txt";
 foreach (var line in File.ReadAllLines(pathtoFile))
 {
-    var parts = line.Split(';');
-    dictionary.Add(parts[0], parts[1]);
+    string[] elements = line.Split(";");
+    string key = elements[0];
+    string value = String.Join(";", elements[1..]);
+    dictionary.Add(key, value);
 }
 
 while (true)
