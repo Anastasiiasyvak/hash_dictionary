@@ -1,14 +1,12 @@
 ﻿var dictionary = new StringsDictionary(); // для зберігання пар ключ-значення
-// string pathToFile = "our_dictionaryy.txt";
 
-
-string pathtoFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "our_dictionaryy.txt");
-
-// string pathtoFile = @"C:\hash_dictionary\our_dictionaryy.txt";
+string pathtoFile = @"C:\Users\Admin\RiderProjects\hash_dictionary\hash_dictionary\our_dictionaryy.txt";
 foreach (var line in File.ReadAllLines(pathtoFile))
 {
-    var parts = line.Split(';');
-    dictionary.Add(parts[0], parts[1]);
+    string[] elements = line.Split(";");
+    string key = elements[0];
+    string value = String.Join(";", elements[1..]);
+    dictionary.Add(key, value);
 }
 
 while (true)
@@ -66,7 +64,8 @@ public class LinkedList
         var newNode = new LinkedListNode(pair, null);
         if (_first == null) // якщо список порожній
         {
-            _first = newNode; // то first стає newNode
+            _first = newNode;
+            return; // то first стає newNode
         }
 
         var current = _first;

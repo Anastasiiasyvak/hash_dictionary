@@ -7,7 +7,7 @@ public class StringsDictionary
     public void Add(string key, string value)
     {
         var wordHash = CalculateHash(key);
-        var bucket = wordHash % 10;
+        var bucket = wordHash % InitialSize;
         if (_buckets[bucket] == null)
         {
             _buckets[bucket] = new LinkedList();
@@ -39,12 +39,12 @@ public class StringsDictionary
         
     }
 
-    private int CalculateHash(string key) // рахує наш хеш
+    private long CalculateHash(string key) // рахує наш хеш
     {
-        var hash = 0;
+        long hash = 0;
         for (int i = 0; i < key.Length; i++)
         { 
-            hash += Convert.ToInt32(key[i] * Math.Pow(2, i)); // Convert.ToInt32 щоб перетворити добуток на ціле
+            hash += Convert.ToInt64(key[i] * Math.Pow(2, i)); // Convert.ToInt32 щоб перетворити добуток на ціле
                                                               // число перед додаванням до змінної hash
         }
         return hash;
