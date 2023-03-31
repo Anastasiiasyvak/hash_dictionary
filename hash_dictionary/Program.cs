@@ -1,4 +1,4 @@
-﻿var dictionary = new StringsDictionary(); // для зберігання пар ключ-значення
+﻿var dictionary = new StringsDictionary(); 
 string pathtoFile = "/home/nastia/for_new_projects/hash_dictionary/hash_dictionary/our_dictionaryy.txt";
 foreach (var line in File.ReadAllLines(pathtoFile))
 {
@@ -56,7 +56,7 @@ public class LinkedListNode
 
 public class LinkedList
 {
-    private LinkedListNode _first;
+    public LinkedListNode _first;
 
     public void Add(KeyValuePair pair)
     {
@@ -64,7 +64,7 @@ public class LinkedList
         if (_first == null) // якщо список порожній
         {
             _first = newNode;
-            return; // то first стає newNode
+            return; 
         }
 
         var current = _first;
